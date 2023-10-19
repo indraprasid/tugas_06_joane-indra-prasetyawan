@@ -4,8 +4,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebDriver;
 
 public class login {
+
+    WebDriver driver;
+    String baseURL = "https://www.saucedemo.com/";
+
     @Given("User already open the sauce demo site.")
     public void userAlreadyOpenTheSauceDemoSite() {
     }
