@@ -11,5 +11,5 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cucumber-reports"},
         monochrome = true
 )
-public class run {
+public class testRunner {
 }
