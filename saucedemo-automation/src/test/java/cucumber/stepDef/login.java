@@ -52,20 +52,4 @@ String baseURL = "https://www.saucedemo.com/";
     @And("The user is unsuccessfully logged in")
     public void theUserIsUnsuccessfullyLoggedIn() {
     }
-
-    @Given("B")
-    public void b() {
-    }
-
-    @When("C")
-    public void c() {
-    }
-
-    @And("D")
-    public void d() {
-    }
-
-    @Then("E")
-    public void e() {
-    }
 }
