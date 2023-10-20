@@ -11,7 +11,8 @@ public class login {
 
     @Given("User already open the sauce demo site.")
     public void userAlreadyOpenTheSauceDemoSite() {
-        System.setProperty("webdriver.chrome.driver", "saucedemo-automation/driver/chromedriver.exe");
+
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com");
     }
@@ -43,7 +44,10 @@ public class login {
 
     @Given("User already open the sauce demo site")
     public void userAlreadyOpenTheSauceDemoSites() {
-        throw new io.cucumber.java.PendingException();
+
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.saucedemo.com");
     }
 
     @And("User enters the valid password, i.e. secret_saucedemo")
