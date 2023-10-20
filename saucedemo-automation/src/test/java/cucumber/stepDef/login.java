@@ -4,18 +4,16 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-//import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class login {
 
-/*
-WebDriver driver;
-String baseURL = "https://www.saucedemo.com/";
-*/
-
     @Given("User already open the sauce demo site.")
     public void userAlreadyOpenTheSauceDemoSite() {
-        throw new io.cucumber.java.PendingException();
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.saucedemo.com");
     }
 
     @When("User enters the valid username, i.e. standard_user")
