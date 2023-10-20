@@ -4,12 +4,14 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebDriver;
 
 public class login {
 
-    WebDriver driver;
-    String baseURL = "https://www.saucedemo.com/";
+/*
+WebDriver driver;
+String baseURL = "https://www.saucedemo.com/";
+*/
 
     @Given("User already open the sauce demo site.")
     public void userAlreadyOpenTheSauceDemoSite() {
@@ -49,5 +51,21 @@ public class login {
 
     @And("The user is unsuccessfully logged in")
     public void theUserIsUnsuccessfullyLoggedIn() {
+    }
+
+    @Given("B")
+    public void b() {
+    }
+
+    @When("C")
+    public void c() {
+    }
+
+    @And("D")
+    public void d() {
+    }
+
+    @Then("E")
+    public void e() {
     }
 }
