@@ -11,7 +11,7 @@ public class login {
 
     @Given("User already open the sauce demo site.")
     public void userAlreadyOpenTheSauceDemoSite() {
-        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "saucedemo-automation/driver/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com");
     }
