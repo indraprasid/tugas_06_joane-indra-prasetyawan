@@ -15,9 +15,3 @@ Feature: Login page
     And User clicks the Login button
     Then The system shows an error message 'Epic sadface: Username and password do not match any user in this service'
     And The user is unsuccessfully logged in
-
-  Scenario: A
-    Given B
-    When C
-    And D
-    Then E
