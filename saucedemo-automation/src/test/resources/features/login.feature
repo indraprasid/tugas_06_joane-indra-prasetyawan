@@ -1,14 +1,14 @@
-Feature: Login page
+Feature: Login
 
-  @bdd
+  @bddLoginValid
   Scenario: Verify the users are not able to login with valid credentials
     Given User already open the sauce demo site
     When User enters the valid username, i.e. standard_user
-    And User enters the valid password, i.e. secret_saucedemo
+    And User enters the valid password, i.e. secret_sauce
     And User clicks the Login button
-    Then The user is successfully logged in
+    Then User is redirected to the homepage
 
-  @bdd
+  @bddLoginInvalid
   Scenario: Verify the users are not able to login with invalid credentials
     Given User already open the sauce demo site
     When User enters the valid username, i.e. standard_user

@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "cucumber.stepDef",
         plugin = {"pretty", "html:target/tugas_o6_joane-indra-prasetyawan.html"},
-        tags = "@tdd",
+        tags = "",
         monochrome = true
 )
 public class TestRunner {
