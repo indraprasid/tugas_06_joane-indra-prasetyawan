@@ -8,7 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "cucumber.stepDef",
-        plugin = {"pretty", "html:target/cucumber-reports", "progress"},
+        plugin = {"pretty", "html:target/tugas_o6_joane-indra-prasetyawan.html"},
+        tags = "@tdd",
         monochrome = true
 )
 public class TestRunner {
