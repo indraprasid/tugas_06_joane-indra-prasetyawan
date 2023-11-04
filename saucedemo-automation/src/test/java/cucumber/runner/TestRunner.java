@@ -23,19 +23,12 @@ import net.masterthought.cucumber.sorting.SortingMethod;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "cucumber.stepDef",
-//        plugin = {"pretty", "json:target/cucumber-report/cucumber.json"}
-//      plugin = {"pretty", "json:target/cucumber-report/cucumber.json", "de.monochromata.cucumber.report.PrettyReports:target/cucumber-report"}
         plugin = {"pretty", "json:target/cucumber-report/cucumber.json", "me.jvt.cucumber.report.PrettyReports:target/cucumber-report"}
-//      plugin = {"pretty", "html:target/tugas_o6_joane-indra-prasetyawan.html"}
-//      plugin = {"pretty", "json:target/cucumber-report/cucumber.json", "html:target/cucumber-report/cucumber.html"}
-//        tags = "",
-//        monochrome = true
+//      tags = ""
 )
 public class TestRunner {
-    //    public static void generateReport() throws IOException {
-
-    @SuppressWarnings("Unchecked")
-    @AfterClass
+//    @SuppressWarnings("Unchecked")
+//    @AfterClass
 
     public static void generateReport() {
         File reportOutputDirectory = new File("target/cucumber-report");
