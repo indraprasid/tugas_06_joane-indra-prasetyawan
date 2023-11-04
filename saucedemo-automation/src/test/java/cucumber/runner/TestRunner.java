@@ -2,6 +2,7 @@ package cucumber.runner;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 //import io.cucumber.plugin.Plugin;
 
@@ -22,15 +23,20 @@ import net.masterthought.cucumber.sorting.SortingMethod;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "cucumber.stepDef",
-        plugin = {"pretty", "json:target/cucumber-report/cucumber.json"}
+//        plugin = {"pretty", "json:target/cucumber-report/cucumber.json"}
 //      plugin = {"pretty", "json:target/cucumber-report/cucumber.json", "de.monochromata.cucumber.report.PrettyReports:target/cucumber-report"}
+        plugin = {"pretty", "json:target/cucumber-report/cucumber.json", "me.jvt.cucumber.report.PrettyReports:target/cucumber-report"}
 //      plugin = {"pretty", "html:target/tugas_o6_joane-indra-prasetyawan.html"}
 //      plugin = {"pretty", "json:target/cucumber-report/cucumber.json", "html:target/cucumber-report/cucumber.html"}
 //        tags = "",
 //        monochrome = true
 )
 public class TestRunner {
-//    public static void generateReport() throws IOException {
+    //    public static void generateReport() throws IOException {
+
+    @SuppressWarnings("Unchecked")
+    @AfterClass
+
     public static void generateReport() {
         File reportOutputDirectory = new File("target/cucumber-report");
         List<String> jsonFiles = new ArrayList<>();
@@ -43,7 +49,7 @@ public class TestRunner {
 
         configuration.addClassifications("Browser", "Chrome");
         configuration.addClassifications("Branch", "release/1.0");
-        configuration.addClassifications("Platform", System.getProperty("os.name").toUpperCase());
+        configuration.addClassifications("Platform", System.getProperty("os.name"));
         configuration.setSortingMethod(SortingMethod.NATURAL);
         configuration.addPresentationModes(PresentationMode.EXPAND_ALL_STEPS);
         configuration.addPresentationModes(PresentationMode.PARALLEL_TESTING);

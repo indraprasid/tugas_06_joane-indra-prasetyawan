@@ -22,26 +22,32 @@
             <scope>test</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>junit</groupId>-->
-<!--            <artifactId>junit</artifactId>-->
-<!--            <version>4.13.2</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>junit</groupId>-->
+        <!--            <artifactId>junit</artifactId>-->
+        <!--            <version>4.13.2</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>de.monochromata.cucumber</groupId>-->
-<!--            <artifactId>reporting-plugin</artifactId>-->
-<!--            <version>5.0.0</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>de.monochromata.cucumber</groupId>-->
+        <!--            <artifactId>reporting-plugin</artifactId>-->
+        <!--            <version>5.0.0</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>de.monochromata.cucumber</groupId>-->
-<!--            <artifactId>stepdefs</artifactId>-->
-<!--            <version>1.3.75</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>de.monochromata.cucumber</groupId>-->
+        <!--            <artifactId>stepdefs</artifactId>-->
+        <!--            <version>1.3.75</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>me.jvt.cucumber</groupId>
+            <artifactId>reporting-plugin</artifactId>
+            <version>7.11.0</version>
+        </dependency>
 
         <dependency>
             <groupId>net.masterthought</groupId>
@@ -69,6 +75,41 @@
         </dependency>
     </dependencies>
 
+    <!--    <build>-->
+    <!--        <plugins>-->
+    <!--            <plugin>-->
+    <!--                <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                <artifactId>maven-surefire-plugin</artifactId>-->
+    <!--                <version>3.1.2</version>-->
+    <!--                <configuration>-->
+    <!--                    <testFailureIgnore>true</testFailureIgnore>-->
+    <!--                </configuration>-->
+    <!--            </plugin>-->
+    <!--            <plugin>-->
+    <!--                <groupId>net.masterthought</groupId>-->
+    <!--                <artifactId>maven-cucumber-reporting</artifactId>-->
+    <!--                <version>5.7.5</version>-->
+    <!--                <executions>-->
+    <!--                    <execution>-->
+    <!--                        <id>execution</id>-->
+    <!--                        <phase>verify</phase>-->
+    <!--                        <goals>-->
+    <!--                            <goal>generate</goal>-->
+    <!--                        </goals>-->
+    <!--                        <configuration>-->
+    <!--                            <projectName>saucedemo-automation</projectName>-->
+    <!--                            <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>-->
+    <!--                            <inputDirectory>${project.build.directory}/cucumber-report</inputDirectory>-->
+    <!--                            <jsonFiles>-->
+    <!--                                <param>cucumber.json</param>-->
+    <!--                            </jsonFiles>-->
+    <!--                        </configuration>-->
+    <!--                    </execution>-->
+    <!--                </executions>-->
+    <!--            </plugin>-->
+    <!--        </plugins>-->
+    <!--    </build>-->
+
 <!--    <build>-->
 <!--        <plugins>-->
 <!--            <plugin>-->
@@ -76,30 +117,11 @@
 <!--                <artifactId>maven-surefire-plugin</artifactId>-->
 <!--                <version>3.1.2</version>-->
 <!--                <configuration>-->
-<!--                    <testFailureIgnore>true</testFailureIgnore>-->
+<!--                    <testSourceDirectory>src/test/java/cucumber/runner</testSourceDirectory>-->
+<!--                    <includes>-->
+<!--                        <include>TestRunner.java</include>-->
+<!--                    </includes>-->
 <!--                </configuration>-->
-<!--            </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>net.masterthought</groupId>-->
-<!--                <artifactId>maven-cucumber-reporting</artifactId>-->
-<!--                <version>5.7.5</version>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>execution</id>-->
-<!--                        <phase>verify</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>generate</goal>-->
-<!--                        </goals>-->
-<!--                        <configuration>-->
-<!--                            <projectName>saucedemo-automation</projectName>-->
-<!--                            <outputDirectory>${project.build.directory}/cucumber-report</outputDirectory>-->
-<!--                            <inputDirectory>${project.build.directory}/cucumber-report</inputDirectory>-->
-<!--                            <jsonFiles>-->
-<!--                                <param>cucumber.json</param>-->
-<!--                            </jsonFiles>-->
-<!--                        </configuration>-->
-<!--                    </execution>-->
-<!--                </executions>-->
 <!--            </plugin>-->
 <!--        </plugins>-->
 <!--    </build>-->
@@ -108,14 +130,36 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
-                <configuration>
-                    <testSourceDirectory>src/test/java/cucumber/runner</testSourceDirectory>
-                    <includes>
-                        <include>TestRunner.java</include>
-                    </includes>
-                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-plugin-plugin</artifactId>
+                <version>3.6.0</version>
             </plugin>
         </plugins>
     </build>
